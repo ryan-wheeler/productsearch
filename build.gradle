@@ -1,0 +1,26 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.wml'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+test {
+	exclude 'com/wml/productsearch/productload/integration'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: swagger_version
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: swagger_version
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
